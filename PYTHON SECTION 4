@@ -1,0 +1,38 @@
+#SECTION4
+def general_menu():
+    print_header("GENERAL-PURPOSE MATH FUNCTIONS")
+    print("""
+1. Compute ceil, floor, and trunc of a value
+2. Compute a factorial
+3. Compute the hypotenuse of a right triangle
+0. Back to Main Menu
+""")
+
+    choice = safe_input("Enter your choice: ").strip()
+
+    if choice == "1":
+        x = get_float("Enter a value: ")
+        print(f"\nValue = {x}")
+        print(f"math.ceil({x}) = {math.ceil(x)}")
+        print(f"math.floor({x}) = {math.floor(x)}")
+        print(f"math.trunc({x}) = {math.trunc(x)}")
+
+    elif choice == "2":
+        n = get_int("Enter a non-negative integer: ")
+        try:
+            print(f"\nmath.factorial({n}) = {math.factorial(n)}")
+        except ValueError:
+            print("factorial(x) needs a non-negative integer. Skipped.")
+
+    elif choice == "3":
+        a = get_float("Enter the length of side a: ")
+        b = get_float("Enter the length of side b: ")
+        print(f"\nmath.hypot({a}, {b}) = {math.hypot(a, b)}")
+
+    elif choice == "0":
+        return
+
+    else:
+        print("\nInvalid Choice.")
+
+    pause()
